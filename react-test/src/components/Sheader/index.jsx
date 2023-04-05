@@ -22,19 +22,19 @@ export default class Sheader extends Component {
       isLoading:true
     })
     setTimeout(()=>{
-      // PubSub.publish('message',{
-      //   isLoading:false,
-      //   searchData:[{
-      //     id:'11',
-      //     name:'new1'
-      //   }]
+      PubSub.publish('message',{
+        isLoading:false,
+        searchData:[{
+          id:'11',
+          name:'new1'
+        }]
 
-      // })
-      fetch('').then(()=>{
-        alert(1)
-      },()=>{
-        alert(2)
       })
+      // fetch('').then(()=>{
+      //   alert(1)
+      // },()=>{
+      //   alert(2)
+      // })
       // this.props.updateStatus({
       //   isLoading:false,
       //   searchData:[{
