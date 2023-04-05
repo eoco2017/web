@@ -1,6 +1,11 @@
 import React,{Component} from "react";
+import PropTypes from 'prop-types'
 
 export default class Header extends Component{
+    // static propTypes = {
+    //     todoList: PropTypes.array.isRequired,
+    //     changeStatus: PropTypes.func.isRequired
+    // }
     state = {
         mouse: false
     }
@@ -11,12 +16,20 @@ export default class Header extends Component{
             })
         }
     }
-    handleChange = (id)=>{
-        return (event)=>{
-            this.props.changeStatus(id,event.target.checked)
+    handleChange = (event,id)=>{
+        this.props.changeStatus(id,event.target.checked)
+        // return (event)=>{
+        //     this.props.changeStatus(id,event.target.checked)
+        // }
+        
+    }
+    handleDelete = (id)=>{
+        if (window.confirm('delete?')){
+            this.props.deleteItem(id)
         }
         
     }
+
     render(){
         const {id,name,status} = this.props
         const {mouse} = this.state
@@ -24,10 +37,10 @@ export default class Header extends Component{
             <li style={{backgroundColor
             :mouse?'#ccc':'#fff'}} onMouseLeave={this.handleMouse(false)} onMouseEnter={this.handleMouse(true)}>
                 <label>
-                    <input type="checkbox" defaultChecked={status} onChange={this.handleChange(id)}/>
+                    <input type="checkbox" defaultChecked={status} onChange={(e)=>{this.handleChange(e,id)}}/>
                     <span>{name}</span>
                 </label>
-                <button style={{display:'none'}}>delete</button>
+                <button style={{display:mouse?'block':'none',float:'right'}} onClick={()=>this.handleDelete(id)}>delete</button>
             </li>
         )
     }

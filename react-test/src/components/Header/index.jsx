@@ -1,8 +1,12 @@
 import React,{Component} from "react";
+import PropTypes from 'prop-types'
 import {nanoid} from 'nanoid'
 
 export default class Header extends Component{
-    
+    static propTypes = {
+        getValue:PropTypes.func.isRequired
+    }
+
     handleChange = (e)=>{
         const {keyCode,target} = e
         if (keyCode!= 13) return

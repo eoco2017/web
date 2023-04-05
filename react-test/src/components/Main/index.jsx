@@ -40,12 +40,21 @@ export default class Main extends Component{
             todoList:newArr
         })
     }
+    deleteItem = (id)=>{
+        const {todoList} = this.state
+        const newArr = todoList.filter((item)=>{
+            return item.id != id
+        })
+        this.setState({
+            todoList:newArr
+        })
+    }
     render(){
         return (
             <div>
                 <Header getValue={this.getValue}></Header>
-                <List todoList={this.state.todoList} changeStatus={this.changeStatus}></List>
-                <Foot></Foot>
+                <List todoList={this.state.todoList} changeStatus={this.changeStatus} deleteItem={this.deleteItem}></List>
+                <Foot todoList={this.state.todoList}></Foot>
             </div>
         )
     }
