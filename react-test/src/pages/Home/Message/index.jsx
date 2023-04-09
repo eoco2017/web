@@ -19,11 +19,19 @@ export default class Message extends Component{
         }]
     }
     replaceRoute = (id,title)=>{
-        this.props.history.replace(`/home/message/detail/${id}/${title}`)
+        // this.props.history.replace(`/home/message/detail/${id}/${title}`)
+        this.props.history.replace('/home/message/detail',{id,title})
     }
     pushRoute = (id,title)=>{
-        this.props.history.push(`/home/message/detail/${id}/${title}`)
+        // this.props.history.push(`/home/message/detail/${id}/${title}`)
+        this.props.history.push('/home/message/detail',{id,title})
     }
+    // back = ()=>{
+    //     this.props.history.goBack()
+    // }
+    // pre = ()=>{
+    //     this.props.history.goForward()
+    // }
     render(){
         return (
             <div>
@@ -32,19 +40,22 @@ export default class Message extends Component{
                         this.state.messageArr.map(item=>{
                             return (
                                 <li key={item.id}>
-                                    <Link to={`/home/message/detail/${item.id}/${item.title}`}>{item.title}</Link>
+                                    {/* <Link to={`/home/message/detail/${item.id}/${item.title}`}>{item.title}</Link> */}
+                                    
+                                    {/* <Link to={`/home/message/detail/?id=${item.id}&title=${item.title}`}>{item.title}</Link> */}
+                                    <Link to={{pathname:'/home/message/detail',state:{id:item.id,title:item.title}}}>{item.title}</Link>
                                     <button onClick={()=>this.pushRoute(item.id,item.title)}>push</button>
                                     <button onClick={()=>this.replaceRoute(item.id,item.title)}>replace</button>
-                                    {/* <Link to={`/home/message/detail/?id=${item.id}&title=${item.title}`}>{item.title}</Link> */}
-                                    {/* <Link to={{pathname:'/home/message/detail',state:{id:item.id,title:item.title}}}>{item.title}</Link> */}
                                 </li>
                             )
                         })
                     }
                 </ul>
                 <hr></hr>
-                <Route path="/home/message/detail/:id/:title" component={Detail}></Route>
-                {/* <Route path="/home/message/detail" component={Detail}></Route> */}
+                {/* <Route path="/home/message/detail/:id/:title" component={Detail}></Route> */}
+                <Route path="/home/message/detail" component={Detail}></Route>
+                {/* <button onClick={this.back}>back</button>
+                <button onClick={this.pre}>pre</button> */}
             </div>
         )
     }

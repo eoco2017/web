@@ -31,3 +31,4 @@ state
 to={{pathname:'',state:{}}}
 this.props.location.state
 
+## redux,react-redux

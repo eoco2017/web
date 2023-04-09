@@ -18,10 +18,10 @@ const Data = [{
 export default class Detail extends Component{
     
     render(){
-        const {id,title} = this.props.match.params
+        // const {id,title} = this.props.match.params
         // const {search} = this.props.location
         // const {id,title} = qs.parse(search.slice(1))
-        // const {id,title} = this.props.location.state || {}
+        const {id,title} = this.props.location.state || {}
         const {content} = Data.find((item)=>{return item.id == id})
         return (
             <div>
