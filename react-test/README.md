@@ -30,5 +30,12 @@ search to="/home?id=$name=" this.props.location.search
 state
 to={{pathname:'',state:{}}}
 this.props.location.state
+懒加载
+npm i react-router-dom
 
 ## redux,react-redux
+
+
+## npm i serve -g
+配置服务器
+serve build

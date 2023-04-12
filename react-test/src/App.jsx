@@ -11,6 +11,9 @@ import MyNavLink from './components/MyNavLink'
 import store from './redux/store'
 import RCount from './containers/Count'
 import Person from './containers/Person'
+import NewState from './components/NewState'
+import Lazy from './components/Lazy'
+import Myhook from './components/Myhook'
 import './App.css'
 
 export default class App extends Component{
@@ -48,9 +51,14 @@ export default class App extends Component{
               </div>
           </div>
         </div> */}
-        <RCount></RCount>
+        {/* <RCount></RCount>
         <hr></hr>
-        <Person></Person>
+        <Person></Person> */}
+        {/* <NewState></NewState> */}
+        {/* 懒加载*/}
+        {/* <Lazy></Lazy>*/}
+        {/* hook*/}
+        <Myhook></Myhook>
       </div>
     )
   }
